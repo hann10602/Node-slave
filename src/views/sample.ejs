@@ -5,7 +5,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>alo</h1>
-    <img src="/images/AI-bot-1.jpg" alt="" />
+    <h1>Add User</h1>
+    <form action="/api/user/create" method="POST">
+      <label for="">Fullname</label><input type="text" name="fullname" />
+      <label for="">Username</label><input type="text" name="username" />
+      <label for="">Password</label><input type="text" name="password" />
+      <button type="submit">Save</button>
+    </form>
   </body>
 </html>
