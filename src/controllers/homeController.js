@@ -2,9 +2,6 @@ const pool = require("../config/db");
 const { getUserList } = require("./api/user/UserAPIController");
 
 const getHomePage = (req, res) => {
-  pool.query("SELECT * FROM user", (err, results) => {
-    console.log(results);
-  });
   res.render("sample.ejs");
 };
 

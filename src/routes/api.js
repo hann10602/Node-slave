@@ -5,7 +5,7 @@ const {
   getUserList,
 } = require("../controllers/api/user/UserAPIController");
 
-api.post("/create", createUser);
+api.get("/create/:id", createUser);
 api.get("/get-all", getUserList);
 
 module.exports = api;

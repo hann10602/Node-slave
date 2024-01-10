@@ -1,21 +1,23 @@
 const connection = require("../../../config/db");
 
 const createUser = (req, res) => {
-  const { fullname, username, password } = req.body;
+  const data = req.params;
 
-  connection.query(
-    `INSERT INTO user (fullname, username, password) VALUES(?, ?, ?)`,
-    [fullname, username, password],
-    (err, results) => {
-      console.log(results);
-    }
-  );
+  console.log(data);
+
+  // connection.query(
+  //   `INSERT INTO user (fullname, username, password) VALUES(?, ?, ?)`,
+  //   [fullname, username, password],
+  //   (err, results) => {
+  //     console.log(results);
+  //   }
+  // );
   res.send("Successfully");
 };
 
 const getUserList = async (req, res) => {
   const [results, field] = await connection.query(`SELECT * FROM user`);
-  console.log(results);
+  console.log("ket qua " + JSON.stringify(results));
   res.send("SUccessfully");
 };
 
