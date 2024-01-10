@@ -1,6 +1,22 @@
+const connection = require("../../../config/db");
+
 const createUser = (req, res) => {
-  console.log("body" + req.body);
+  const { fullname, username, password } = req.body;
+
+  connection.query(
+    `INSERT INTO user (fullname, username, password) VALUES(?, ?, ?)`,
+    [fullname, username, password],
+    (err, results) => {
+      console.log(results);
+    }
+  );
   res.send("Successfully");
 };
 
-module.exports = { createUser };
+const getUserList = async (req, res) => {
+  const [results, field] = await connection.query(`SELECT * FROM user`);
+  console.log(results);
+  res.send("SUccessfully");
+};
+
+module.exports = { createUser, getUserList };
